@@ -13,7 +13,7 @@ C++17 version. If you don't know what *attributes* are you can find the details 
 you can annotate types, functions and other things with and thus provide
 some additional information to the compiler.
 
-`[[nodiscard]]` particularly can be applied in function, enum and
+`[[nodiscard]]` can be applied, in particular to function, enum and
 class declarations. So for example they can appear in the following way.
 
 ```c++
@@ -29,8 +29,9 @@ enum class [[nodiscard]] NoDiscardEnum {
 ```
 
 # What does `[[nodiscard]]` do?
-In case where it is used with a *class* or *enum* it indicates that when value of such type is returned from any function and not used in any way
-a compiler should emit warning to the user. Below is an example of such
+When it is used with a *class* or *enum* it indicates that when the value of
+such type is returned from any function and not used in any way
+the compiler should emit a warning to the user. Below is an example of such a
 situation.
 
 ```c++
@@ -47,16 +48,16 @@ int main()
 	return 0;
 }
 ```
-So we do not handle value given by `do_something` but because we
-annotated `NoDiscardClass` with `[[nodiscard]]` compiler (in this case MSVC)
-emits following warning.
+So we do not handle the value given by `do_something` but because we
+annotated `NoDiscardClass` with `[[nodiscard]]` the compiler (in this case
+MSVC) emits following warning.
 
 **`warning C4834:  discarding return value of function with 'nodiscard' attribute`**
 
-If we would remove `[[nodiscard]]` this code would compile without any warnings.
+If we removed `[[nodiscard]]` this code would compile without any warnings.
 
-In case when `[[nodiscard]]` is used with function then it doesn't
-matter whether the type returned by it is annotated or not, warning will be
+In the event that `[[nodiscard]]` is used with function then it doesn't
+matter whether the type it returns is annotated or not, the warning will be
 emitted nonetheless. So again showing it in an example.
 
 ```c++
@@ -71,18 +72,20 @@ int main()
 }
 ```
 
-Again this code when compiled issues warning that looks exactly the same as
+Again this code when compiled issues a warning that looks exactly the same as
 the previous one.
 
 # Why is it useful?
-Being programmers and having to remember so many things when writing code
-it is easy to forget things. One of such things is to handle returned values.
+Being programmers and having to remember so many things when writing code,
+it is easy to forget things. One of these things is to handle returned values.
 I think that when function returns something it is not for no reason and it
 is our job to do something with that value whether it is result of some
 calculation or just error indicator.
 
-Why would we call a function that returns a value and then do nothing with
-it? This would probably mean that the function does something more like modifies a state or performs *IO*.
+Why would we call a function that returns a value, and then do nothing with
+that value? This would probably mean that the function does something more,
+like modify a state or perform *IO*. Silly example might look similar
+to one below.
 
 ```c++
 #include <filesystem>
@@ -105,9 +108,11 @@ int main(int argc, char* argv[])
 }
 ```
 
-Here I could imagine if we do not care whether logging with `log_sqrt_to_file` succeeded we don't need to handle returned value. If we would apply
+Here I can imagine that if we do not care whether logging with
+`log_sqrt_to_file` succeeds we don't need to handle returned value.
+If applied 
 `[[nodiscard]]` to the `log_sqrt_to_file` we would get that pesky warning
-that we don't want in this case because we discard the value purposefully.
+that we don't want because we discarded the value deliberately.
 So how about adding [[nodiscard]] and just assigning it to some variable.
 
 ```c++
@@ -127,8 +132,9 @@ int main(int argc, char* argv[])
 
 Unfortunately this will give as another warning.  
 `warning C4189:  '_': local variable is initialized but not referenced`
+
 Fortunately there is a way
-around it an that is coincidentally another attribute i.e. [[maybe_unused]].
+around it and that is coincidentally another attribute i.e. [[maybe_unused]].
 So we can just add it to the assigned variable and voila.
 ```c++
 int main(int argc, char* argv[])
@@ -138,38 +144,43 @@ int main(int argc, char* argv[])
 }
 ```
 
-So we get the good of `[[nodiscard]]` and still have the flexibility.
+We get the benefits of `[[nodiscard]]` and still maintain the flexibility.
 
-Im am not so sure about usefulness of `[[nodiscard]]` on *classes* and *enums*
-except when they the indicate errors maybe.
+Im am not so sure how `[[nodiscard]]` useful is with *classes* and *enums*
+except maybe when they the indicate errors.
 
-I hope that this is useful overview of the `[[nodiscard]]` attribute and
-I encourage you to think about using it in your own projects.
+I hope that it has been useful quick overview of the `[[nodiscard]]`
+attribute and I encourage you to think about using it in your own projects.
 
 ___
-*Here comes my opinion so please bare with me...*  
+*Here comes my opinion so please bear with me...*  
 So I know there are cases
-where we do not care about returned value but I believe that those
+where we do not care about a returned value but I believe that those
 are few and far between and because of that we should apply `[[nodiscard]]` to
 all functions except when we have a good reason not to. I would love to have
-it by default but yeah we are in C++ world and we have to consider things like
+it as default but yeah we are in C++ world and we have to consider things like
 backward compatibility and impacting existing code-bases.
 
-Albeit I have beef with attributes in general is that it makes C++ code which is already very verbose even more cluttered with keywords. We already have
-`consextpr`, `noexcept`, `inline`, `virtual`, `override` etc. Things are
-are getting out of hand. Nowadays declarations are starting to look like monsters. I pity those who start their journey with C++ and have to look
-at modern C++. There is just so much cognitive overhead when compare to `C with classes` or other languages.
+I must say that I have a small beef with attributes in general. I feel
+that they make C++ code, which is already very verbose, even more cluttered.
+We already have
+`constexpr`, `noexcept`, `inline`, `virtual`, `override` etc. Things are
+are getting out of hand. Nowadays declarations are starting to look like little monsters. I pity those who start their journey with C++ and have to look
+at modern C++. There is just so much cognitive overhead when compared to *"C with classes"* or other languages.
 
 ```c++
 template<typename T, typename = std::enable_if<std::is_arithmetic<T>::value>>
 [[nodiscard]] constexpr bool is_positive(T&& number) noexcept;
 ```
-So I stared learning when C++11 was becoming a thing and learned C++ gradually.
+
+So it is not a problem specific to attributes per se.
+
+I started learning when C++11 was becoming a thing and learned C++ gradually.
 I fear that nowadays newcomers can become overwhelmed and hence discouraged
 to use C++.
 
-Yeah we get all these goodies in Modern C++ but there is some cost. I think getting into the language for newcomers might be becoming harder and harder.
-
-
+Yeah we get all these goodies in Modern C++ (which I love and encourage others
+to use) but there is some cost. I think newcomers can find it harder and harder
+getting into the language and that worries me.
 
 
