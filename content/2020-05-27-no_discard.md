@@ -9,12 +9,12 @@ tags = ["C++", "C++17", "C++ attributes"]
 
 # What is `[[nodiscard]]`?
 `[[nodiscard]]` is another attribute that has been added into C++ in the
-C++17 version. If you don't know what *attributes* are you can find the details on the [reference page](https://en.cppreference.com/w/cpp/language/attributes/nodiscard) but putting it simply they are things that
+C++17 version. If you don't know what *attributes* are you can find the details on the [reference page](https://en.cppreference.com/w/cpp/language/attributes) but putting it simply they are things that
 you can annotate types, functions and other things with and thus provide
 some additional information to the compiler.
 
 `[[nodiscard]]` can be applied, in particular to function, enum and
-class declarations. So for example they can appear in the following way.
+class declarations. For example they can appear in the following way.
 
 ```c++
 class [[nodiscard]] NoDiscardClass {
@@ -135,7 +135,7 @@ Unfortunately this will give as another warning.
 
 Fortunately there is a way
 around it and that is coincidentally another attribute i.e. [[maybe_unused]].
-So we can just add it to the assigned variable and voila.
+We can just add it to the assigned variable and voila.
 ```c++
 int main(int argc, char* argv[])
 {
@@ -147,14 +147,14 @@ int main(int argc, char* argv[])
 We get the benefits of `[[nodiscard]]` and still maintain the flexibility.
 
 Im am not so sure how `[[nodiscard]]` useful is with *classes* and *enums*
-except maybe when they the indicate errors.
+except maybe when those represent errors.
 
 I hope that it has been useful quick overview of the `[[nodiscard]]`
 attribute and I encourage you to think about using it in your own projects.
 
 ___
 *Here comes my opinion so please bear with me...*  
-So I know there are cases
+I know there are cases
 where we do not care about a returned value but I believe that those
 are few and far between and because of that we should apply `[[nodiscard]]` to
 all functions except when we have a good reason not to. I would love to have
@@ -173,14 +173,13 @@ template<typename T, typename = std::enable_if<std::is_arithmetic<T>::value>>
 [[nodiscard]] constexpr bool is_positive(T&& number) noexcept;
 ```
 
-So it is not a problem specific to attributes per se.
+So it is not a problem specific to attributes per se. Fixing things by just
+adding stuff leads to such situations.
 
 I started learning when C++11 was becoming a thing and learned C++ gradually.
 I fear that nowadays newcomers can become overwhelmed and hence discouraged
 to use C++.
 
-Yeah we get all these goodies in Modern C++ (which I love and encourage others
+We get all those goodies in modern C++ (which I love and encourage others
 to use) but there is some cost. I think newcomers can find it harder and harder
-getting into the language and that worries me.
-
-
+getting into the language and that worries me. 
