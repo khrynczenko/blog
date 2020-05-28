@@ -23,7 +23,7 @@ taxonomies = [
 [extra]
 # Put all your custom variables here
 even_menu = [
-    {url = "", name = "Home"},
+    {url = "$BASE_URL", name = "Home"},
     {url = "/categories", name = "Categories"},
     {url = "/tags", name = "Tags"},
     {url = "/about", name = "About"},
