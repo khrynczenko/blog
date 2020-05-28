@@ -23,10 +23,10 @@ taxonomies = [
 [extra]
 # Put all your custom variables here
 even_menu = [
-    {url = "$BASE_URL", name = "Home"},
-    {url = "$BASE_URL/categories", name = "Categories"},
-    {url = "$BASE_URL/tags", name = "Tags"},
-    {url = "$BASE_URL/about", name = "About"},
+    {url = "", name = "Home"},
+    {url = "/categories", name = "Categories"},
+    {url = "/tags", name = "Tags"},
+    {url = "/about", name = "About"},
 ]
 even_title = "Krzysztof Hrynczenko's blog"
 katex_enable = true
