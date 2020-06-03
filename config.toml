@@ -60,7 +60,7 @@ copyright = ""            # default: author.name
 
   # site info (optional)                                  # 站点信息（可选，不需要的可以直接注释掉）
   logoTitle = "Krzysztof Hrynczenko's blog"        # default: the title value    # 默认值: 上面设置的title值
-  keywords = ["programming", "deep learning", "c++", "python"]
+  keywords = ["programming", "deep learning", "c++", "python", "rust", "haskell"]
   description = "My blog about programming and related topics."
 
   # paginate of archives, tags and categories             # 归档、标签、分类每页显示的文章数目，建议修改为一个较大的值
@@ -179,7 +179,7 @@ copyright = ""            # default: author.name
   #   alipay = "/path/to/your/alipay-qr-code.png"           # 支付宝二维码
 
   [params.social]                                         # 社交链接
-    a-email = "jeniopy@gmail.com"
+    # a-email = "jeniopy@gmail.com"
     # b-stack-overflow = "http://localhost:1313"
     # c-twitter = "http://localhost:1313"
     # d-facebook = "http://localhost:1313"
