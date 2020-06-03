@@ -1,5 +1,5 @@
 ---
-title: "What is [[nodiscard]] and why it is usefull."
+title: "What is [[nodiscard]] and why it is useful."
 date: 2020-05-27
 
 categories: ["C++"]
@@ -109,10 +109,11 @@ int main(int argc, char* argv[])
 
 Here I can imagine that if we do not care whether logging with
 `log_sqrt_to_file` succeeds we don't need to handle returned value.
-If applied 
+By applying
 `[[nodiscard]]` to the `log_sqrt_to_file` we would get that pesky warning
 that we don't want because we discarded the value deliberately.
-So how about adding `[[nodiscard]]` and just assigning it to some variable.
+So how about adding `[[nodiscard]]` anyway and just assigning it
+to some variable.
 
 ```c++
 [[nodiscard] bool log_sqrt_to_file(const std::filesystem::path& filename, int number) {
