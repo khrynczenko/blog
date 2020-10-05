@@ -1,11 +1,16 @@
 [build]
+base    = ""
 publish = "public"
-command = "hugo --gc --minify"
+command = "zola build"
 
-[context.production.environment]
-HUGO_VERSION = "0.71.1"
-HUGO_ENV = "production"
-HUGO_ENABLEGITINFO = "true"
+[build.environment]
+# Set the version name that you want to use and Netlify will automatically use it.
+ZOLA_VERSION = "0.12.2"
 
-[context.deploy-preview.environment]
-HUGO_VERSION = "0.71.1"
+# The magic for deploying previews of branches.
+# We need to override the base url with whatever url Netlify assigns to our
+# preview site.  We do this using the Netlify environment variable
+# `$DEPLOY_PRIME_URL`.
+
+[context.deploy-preview]
+command = "zola build --base-url $DEPLOY_PRIME_URL"

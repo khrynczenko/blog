@@ -1,15 +1,13 @@
----
-title: "What is [[nodiscard]] and why it is useful."
-date: 2020-05-27
++++
+title = "What is [[nodiscard]]?"
+date = 2020-05-27
 
-categories: ["C++"]
-tags: ["C++", "C++17", "C++ attributes"]
-autoCollapseToc: true
----
-
++++
 ## What is `[[nodiscard]]`?
 `[[nodiscard]]` is another attribute that has been added into C++ in the
-C++17 version. If you don't know what *attributes* are you can find the details on the [reference page](https://en.cppreference.com/w/cpp/language/attributes) but putting it simply they are things that
+C++17 version. If you don't know what *attributes* are you can find the details
+on the [reference page](https://en.cppreference.com/w/cpp/language/attributes)
+but putting it simply they are things that
 you can annotate types, functions and other things with and thus provide
 some additional information to the compiler.
 
@@ -38,15 +36,16 @@ class [[nodiscard]] NoDiscardClass {
 };
 
 NoDiscardClass do_something() {
-	return NoDiscardClass{};
+    return NoDiscardClass{};
 }
 
 int main()
 {
-	do_something();
-	return 0;
+    do_something();
+    return 0;
 }
 ```
+
 We do not handle the value given by `do_something` but because we
 annotated `NoDiscardClass` with `[[nodiscard]]` the compiler (in this case
 MSVC) emits following warning.
@@ -61,13 +60,13 @@ emitted nonetheless. Again showing it in an example.
 
 ```c++
 [[nodiscard]] bool is_positive(int number) {
-	 return number > 0;
+    return number > 0;
 }
 
 int main()
 {
-	is_positive(10);
-	return 0;
+    is_positive(10);
+    return 0;
 }
 ```
 
@@ -90,20 +89,20 @@ to one below.
 #include <filesystem>
 
 [[nodiscard]] bool is_positive(int number) {
-	 return number > 0;
+    return number > 0;
 }
 
 bool log_sqrt_to_file(const std::filesystem::path& filename, int number) {
-	if (!is_positive(number)) {
-		return false;
-	}
+    if (!is_positive(number)) {
+        return false;
+    }
     // logging part
 }
 
 int main(int argc, char* argv[])
 {
-	log_sqrt_to_file("log.txt", argc);
-	return 0;
+    log_sqrt_to_file("log.txt", argc);
+    return 0;
 }
 ```
 
@@ -117,16 +116,16 @@ to some variable.
 
 ```c++
 [[nodiscard] bool log_sqrt_to_file(const std::filesystem::path& filename, int number) {
-	if (!is_positive(number)) {
-		return false;
-	}
+    if (!is_positive(number)) {
+        return false;
+    }
     // logging part
 }
 
 int main(int argc, char* argv[])
 {
-	bool _ = log_sqrt_to_file("log.txt", argc);
-	return 0;
+    bool _ = log_sqrt_to_file("log.txt", argc);
+    return 0;
 }
 ```
 
@@ -136,11 +135,12 @@ Unfortunately this will give as another warning.
 Fortunately there is a way
 around it and that is coincidentally another attribute i.e. `[[maybe_unused]]`.
 We can just add it to the assigned variable and voila.
+
 ```c++
 int main(int argc, char* argv[])
 {
-	[[maybe_unused]] bool _ = log_sqrt_to_file("log.txt", argc);
-	return 0;
+    [[maybe_unused]] bool _ = log_sqrt_to_file("log.txt", argc);
+    return 0;
 }
 ```
 
@@ -165,7 +165,8 @@ I must say that I have a small beef with attributes in general. I feel
 that they make C++ code, which is already very verbose, even more cluttered.
 We already have `constexpr`, `noexcept`, `inline`, `virtual`, `override` etc.
 Things are
-are getting out of hand. Nowadays declarations are starting to look like little monsters. 
+are getting out of hand. Nowadays declarations are starting to look like little
+monsters.
 I pity those who start their journey with C++ and have to look at modern C++.
 There is just so much cognitive overhead when compared to *"C with classes"* or
 other languages.
@@ -184,4 +185,4 @@ to use C++.
 
 We get all those goodies in modern C++ (which I love and encourage others
 to use) but there is some cost. I think newcomers can find it harder and harder
-getting into the language and that worries me. 
+getting into the language and that worries me.

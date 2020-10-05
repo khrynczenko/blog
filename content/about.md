@@ -1,8 +1,7 @@
----
-title: "About"
-menu: "main"
-weight: 50
----
++++
+path = "about"
+
++++
 
 # About me
 
@@ -23,3 +22,4 @@ Oh and the thing that I am always interested in is writing great code.
 You can find more about me on my LinkedIn and GitHub pages.  
 [Github](https://github.com/khrynczenko)  
 [LinkedIn](https://www.linkedin.com/in/krzysztof-hrynczenko-918448156/)  
+
