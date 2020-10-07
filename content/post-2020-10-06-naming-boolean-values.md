@@ -95,10 +95,10 @@ pub struct Settings {
 
 impl Settings {
     pub fn are_long_breaks_included(&self) -> bool {
-        return are_long_breaks_active; # ERROR!
+        return self.are_long_breaks_included; # ERROR!
     }
     pub fn does_next_period_start_automatically(&self) -> bool {
-        return does_next_period_start_automatically; # ERROR!
+        return self.does_next_period_start_automatically; # ERROR!
     }
 }
 
@@ -116,10 +116,10 @@ pub struct Settings {
 
 impl Settings {
     pub fn are_long_breaks_included(&self) -> bool {
-        return long_breaks_are_included;
+        return self.long_breaks_are_included;
     }
     pub fn does_next_period_start_automatically(&self) -> bool {
-        return next_period_starts_automatically;
+        return self.next_period_starts_automatically;
     }
 }
 
@@ -127,7 +127,7 @@ impl Settings {
 
 Finally, we have obtained something that is clear, much harder to
 misunderstood and conforms with common approach to naming things.
-In summary it is as if with naming all the entities that are represented
+In summary it is the same as with naming all the entities that are represented
 in code. We should strive for being as clear as we can without introducing
 too much noise. It is still hard for me too grasp why I had such problem
 with booleans but I believe I have somewhat tackled that problem and
