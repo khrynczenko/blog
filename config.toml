@@ -11,7 +11,7 @@ highlight_code = true
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = false
 theme = "lightspeed"
-title = "Krzysztof Hrynczenko's Blog"
+title = "Krzysztof Hrynczenko's Dev Diary"
 description = "My little place where I write about things that interest me."
 
 [extra]
