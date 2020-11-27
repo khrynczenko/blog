@@ -22,4 +22,4 @@ Oh and the thing that I am always interested in is writing great code.
 You can find more about me on my LinkedIn and GitHub pages.  
 [Github](https://github.com/khrynczenko)  
 [LinkedIn](https://www.linkedin.com/in/krzysztof-hrynczenko/)  
-
+[ResearchGate](https://www.researchgate.net/profile/Krzysztof_Hrynczenko)
