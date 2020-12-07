@@ -14,6 +14,7 @@ description = "My little place where I write about things that interest me."
 [extra]
 author = "Krzysztof Hrynczenko"
 netlify = true
+maintained_with_love = false
 footer_links = [
     {url = "$BASE_URL/about", name = "About"},
 ]
