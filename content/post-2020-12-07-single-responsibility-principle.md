@@ -1,5 +1,5 @@
 +++
-title = "SOLID #1: Single responsibility"
+title = "SOLID #1: Single responsibility principle"
 date = 2020-12-07
 
 +++

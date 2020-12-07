@@ -19,3 +19,4 @@ footer_links = [
     {url = "$BASE_URL/about", name = "About"},
 ]
 # Put all your custom variables here
+
