@@ -1,5 +1,5 @@
 +++
-title = "SOLID #1: Single responsibility principle"
+title = "SOLID #1: The single responsibility principle"
 date = 2020-12-07
 
 +++
@@ -28,7 +28,7 @@ why and how it can be used to our advantage.
 
 Let's start with the single responsibility!
 
-## Single responsibility principle
+## The single responsibility principle
 
 I think there are two groups of people when it comes to describing what
 actually is the SRP. One group would say that it is about your
