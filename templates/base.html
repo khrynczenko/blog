@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <title>{% block title %}{{ config.title }} &middot; {{ config.description }}{% endblock title %}</title>
+  <meta name="description" content="{% block description %}{{ config.description }}{% endblock description %}" />
+
+{% block seo %}
+  <meta property="og:site_name" content="{% block ogsitename %}{{config.title}}{% endblock ogsitename %}">
+  <meta property="og:title" content="{% block ogtitle %}{{config.title}}{% endblock ogtitle %}">
+  <meta property="og:description" content="{% block ogdesc %}{{config.description}}{% endblock ogdesc %}">
+  <meta property="og:url" content="{% block ogurl %}{{config.base_url | safe }}{% endblock ogurl %}">
+  <meta property="og:image" content="{% block ogimage %}{% if config.extra.ogimage %}{{ get_url(path=config.extra.ogimage) | safe }}{% endif %}{% endblock ogimage %}">
+ {% if page.date -%}
+  <meta property="og:type" content="article" />
+  <meta property="article:published_time" content="{{ page.date | date(format="%+") }}" />
+ {%- endif %}
+
+ {% if page.earlier -%}
+  <link rel="prev" href="{{ page.earlier.permalink | safe }}" />
+ {%- endif %}
+ {% if page.later -%}
+  <link rel="next" href="{{ page.later.permalink | safe }}" />
+ {%- endif %}
+{%- endblock seo -%}
+
+{% set data = load_data(path="public/style.css", format="plain") %}
+  <style>
+{{ data | safe }}
+  </style>
+
+</head>
+
+<body>
+<div>
+
+<header>
+    <h2><a href="{{ config.base_url | safe }}">{{ config.title }}</a></h2>
+    <h3>{{ config.description }}<h3>
+</header>
+
+<hr />
+<main>
+  {% block content %} {% endblock %}
+</main>
+
+<hr />
+
+{% set about_page = get_page(path="about.md") %}
+<nav>
+  <ul id="navbar-list">
+      <li><a href="{{ about_page.permalink }}">About</a></li>
+  </ul>
+</nav>
+<footer>
+</footer>
+
+</div>
+
+</body> 
+</html>
