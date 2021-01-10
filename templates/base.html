@@ -1,8 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <title>{% block title %}{{ config.title }} &middot; {{ config.description }}{% endblock title %}</title>
+<head>
+  <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="{% block description %}{{ config.description }}{% endblock description %}" />
+
+
+{% if page %}
+  <title>{% block title %}{{ page.title }} {% endblock title %}</title>
+{% else %} <!-- it must be a section then -->
+  <title>{% block title %}{{ section.title }}{% endblock title %}</title>
+{% endif %}
 
 {% block seo %}
   <meta property="og:site_name" content="{% block ogsitename %}{{config.title}}{% endblock ogsitename %}">
@@ -34,8 +42,8 @@
 <div>
 
 <header>
-    <h2><a href="{{ config.base_url | safe }}">{{ config.title }}</a></h2>
-    <h3>{{ config.description }}<h3>
+    <h1><a href="{{ config.base_url | safe }}">{{ config.title }}</a></h1>
+    <h2>{{ config.description }}<h2>
 </header>
 
 <hr />
@@ -45,9 +53,9 @@
 
 <hr />
 
-{% set about_page = get_page(path="about.md") %}
 <nav>
   <ul id="navbar-list">
+      {% set about_page = get_page(path="about.md") %}
       <li><a href="{{ about_page.permalink }}">About</a></li>
   </ul>
 </nav>
@@ -55,6 +63,6 @@
 </footer>
 
 </div>
-
 </body> 
+
 </html>
