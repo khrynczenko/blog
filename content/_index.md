@@ -1,3 +1,3 @@
 +++
-title = "index"
+title = "Krzysztof Hrynczenko's Dev Diary"
 +++
