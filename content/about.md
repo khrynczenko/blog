@@ -1,6 +1,5 @@
 +++
-path = "about"
-
+template = "about.html"
 +++
 
 # About me

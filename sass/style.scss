@@ -1,0 +1,54 @@
+
+$background-color: #282a36;
+$pink-color: #ff79c6;
+$white-color: #f8f8f2;
+$purple-color: #bd93f9;
+
+html,
+body {
+	background: $background-color;
+	color: $white-color;
+        font-family: Helvetica, Roboto, Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.6em;
+	margin: auto;
+	max-width: 50rem;
+}
+
+blockquote {
+    font-style: italic;
+}
+
+.posts_list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#navbar-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $purple-color;
+}
+
+a,
+a:visited {
+	color: $pink-color;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+pre {
+	overflow: scroll;
+	padding: 1rem;
+}
+
+img {
+	height: auto;
+	max-width: 100%;
+}
