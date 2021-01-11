@@ -10,9 +10,6 @@ description = "My little place where I write about things that interest me."
 [markdown]
 highlight_code = true
 highlight_theme = "dracula"
-external_links_target_blank = false
-smart_punctuation = true
-
 
 [extra]
 # Put all your custom variables here
