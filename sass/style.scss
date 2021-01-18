@@ -1,21 +1,21 @@
 // Dracula color scheme
-$background-color: #282a36;
-$link-color: #ff79c6;
-$text-color: #f8f8f2;
-$heading-color: #bd93f9;
+//$background-color: #282a36;
+//$link-color: #ff79c6;
+//$text-color: #f8f8f2;
+//$heading-color: #bd93f9;
 
-// Solarized light color scheme
-//$background-color: #fdf6e3;
-//$link-color: #cb4b16;
-//$text-color: #657b83;
-//$heading-color: #859900;
+// Custom color scheme
+$background-color: rgba(245,242,240,0.168627);
+$link-color: #d13812;
+$text-color: black;
+$heading-color: #cb4b16;
 
 html,
 body {
 	background: $background-color;
 	color: $text-color;
         font-family: Helvetica, Roboto, Arial, sans-serif;
-        font-size: 16px;
+        font-size: 18px;
         line-height: 1.6em;
 	margin: auto;
 	max-width: 50rem;
