@@ -9,7 +9,7 @@ date = 2021-01-13
 The dependency inversion principle states that:
 
 - high-level modules should not depend on low-level modules, both should
-depends on abstractions
+depend on abstractions
 - abstractions should not depend on details, details should depend on
 abstractions.
 
@@ -124,7 +124,7 @@ here because I think that this is the essence.
 ## Special notes
 
 I know that I rushed over this and the last principle. I am really time
-constrained these days and writing posts like the one on the single
+constrained these days and writing posts like the one I did on the single
 responsibility principle takes me a couple of hours at least.
 
 If you would like to know more I highly recommend the "Adaptive Code" by
