@@ -25,16 +25,14 @@ blockquote {
     font-style: italic;
 }
 
-.posts_list {
+.post-list {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-#navbar-list {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+nav {
+    word-spacing: 200%;
 }
 
 h1, h2, h3, h4, h5, h6 {
