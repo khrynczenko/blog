@@ -60,5 +60,5 @@ them I built a fully usable application prototype. I feel that I could now
 understand even other codebases based on those technologies.
 Hackathons are a nice way to quickly learn something, truly.
 
-![Soya screen](../soya-screen.png)
+![Soya screen](/soya-screen.png)
 
