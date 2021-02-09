@@ -7,6 +7,8 @@ compile_sass = true
 title = "Krzysztof Hrynczenko's Dev Diary"
 description = "My little place where I write about things that interest me."
 
+generate_feed = true
+
 [markdown]
 highlight_code = true
 highlight_theme = "dracula"
