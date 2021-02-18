@@ -371,11 +371,7 @@ struct FirstName {
     const std::string value;
 private:
     FirstName() = delete;
-    FirstName(std::string name) : value(name) {
-        if (!is_name_valid(name)) {
-            throw std::invalid_argument("Invalid name.");
-        }
-    }
+    FirstName(std::string name) : value(name) {}
 };
 ```
 
