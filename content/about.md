@@ -19,4 +19,5 @@ find it so robust and practical, and Haskell just because it feels cool.
 You can find more about me on my LinkedIn and GitHub pages.  
 [Github](https://github.com/khrynczenko)  
 [LinkedIn](https://www.linkedin.com/in/krzysztof-hrynczenko/)  
-[ResearchGate](https://www.researchgate.net/profile/Krzysztof_Hrynczenko)
+[ResearchGate](https://www.researchgate.net/profile/Krzysztof_Hrynczenko)  
+[Google Scholar](https://scholar.google.com/citations?user=nrZvPrgAAAAJ)
