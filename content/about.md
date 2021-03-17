@@ -3,7 +3,7 @@ title = "About"
 template = "about.html"
 +++
 
-# About me
+## About me
 
 Hi, I am Krzysztof Hrynczenko and I am a programmer.
 Throughout the years I have and I am still gathering a lot of knowledge. I made
