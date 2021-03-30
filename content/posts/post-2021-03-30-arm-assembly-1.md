@@ -55,7 +55,7 @@ Let's take a look at the "Hello world!" in ARM32 assembly.
         bl printf
 
         mov r0, #2
-        mov r0, r1
+        mov r1, r0
         sub r0, r0, r1
 
         pop {ip, lr}
@@ -146,7 +146,9 @@ look at the most fundamental ones.
 
 #### `add` and other arithmetic instructions
 
-`add r0, r0, r1`
+```arm32
+add r0, r0, r1
+```
 
 This instruction has three operands, the first one is a destination operand,
 and the second, and the third one are added to each other.
@@ -169,7 +171,9 @@ There are more instructions that work the same way.
 
 #### `mov`
 
-`mov r0, r1`
+```arm32
+mov r0, r1
+```
 
 This instruction has two operands, the first one is a destination operand,
 and the second one is a source operand. In essence it performs a copy
@@ -196,23 +200,40 @@ set of values.
 
 #### `bal` / `b`
 
-This instruction jumps to a given label unconditionally.
+```arm32
+label:
+//...
 
-`b label`
+b label
+````
+
+This instruction jumps to a given label unconditionally. This means that
+we the next executed instruction would be the one righ after the label.
 
 #### `bx`
+
+```arm32
+bx r0
+```
 
 `bx` aka *branch and exchange* makes a relative jump using a value from a
 *register*.
 
-`bx r0`
-
 #### `bl`
 
-`bl` aka *branch and link* makes a jump  to a label similarly to `b` and
-additionly saves `pc` value into the `lr` register.
+```arm32
+bl label
+```
 
-`bl label`
+`bl` aka *branch and link* makes a jump  to a label similarly to `b` and
+additionly saves `pc` value into the `lr` register. `lr` could be then
+used to go back to the instruction after the jump.  
+It is a shorthand for:
+
+```arm32
+mov lr, pc
+bl label
+```
 
 ### Performing instructions conditionally
 
@@ -280,8 +301,9 @@ ldr r0, [r1, #8] // r0 will now have value from r1 + 8 bytes
 ldr <dest> <source>`
 ```
 
-`str` stores data in memory. This one the first operand acts as a value
-that we want to store in the second operand.
+`str` stores data in memory. In this instruction the first operand acts as a
+value that we want to store in the second operand. Essentially the first
+operand becomes a source, while the second one becomes a destination.
 
 ```arm32
 str r1, [r0] // At address which was in r0 now will be value from r1
@@ -291,6 +313,41 @@ str r1, [r0] // At address which was in r0 now will be value from r1
 ldr r1, =some_array // r1 will have an address
 str r0, [r1, #8] // at the r1 + 8 bytes address will be value from r0
 ```
+
+### Back to our main
+
+Now if we omit some parts of the main, I hope everyone can see what is going
+on. I have removed the `push` and `pop` instruction because we don't understand
+them yet, and I will explain them in the next post.
+
+```arm32
+/* Hello-world program.     Print "Hello, assembly!" and exit with code 0. */
+.data
+    hello:
+        .string "Hello, assembly!\n"
+
+.text
+    .global main
+    main:
+        ldr r0, =hello
+        bl printf
+
+        mov r0, #2
+        mov r1, r0
+        sub r0, r0, r1
+
+        bx lr
+```
+
+Right after the `main:` label we load the address of our `"Hello, assembly!\n`
+string into the `r0` register. We then jump to the start of the `printf`
+function. We used `bl` because `printf` has to know where it needs to go back
+to after finishing its work. By a convention, it will print the string from the
+address inside the `r0` register. Then we just copy a decimal value of 2
+into the `r0` register, we copy the value from `r0` to `r1`. We subtract both
+these values and put the result in `r0`. Because values were the same
+we get 0 inside the `r0`. We finish by doing a relative jump using `lr`
+basically we go back to where the caller has left. Quite simple isn't it?
 
 Okay these are the basics, there are a couple more instructions that we need
 to know to make sense of the whole source code that I showed at the beginning
