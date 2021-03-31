@@ -269,7 +269,7 @@ There are following condition codes:
 #### `ldr` loading from memory
 
 ```arm32
-ldr <dest> <source>`
+ldr <dest> <source>
 ```
 
 `ldr` is used to load data from memory. We can load address of a word using
