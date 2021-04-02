@@ -8,7 +8,8 @@ date = 2021-03-31
 
 Let's jump right into more details regarding 32-bit ARM assembly. In this
 post we will look at memory, and how it is supposed to be used, what are
-the tasks for the rest of the registers, and what is stack, and how to use it.
+the tasks for the rest of the registers, and what is the stack, and how to use
+it.
 
 ## Segments
 
@@ -29,11 +30,11 @@ preventing executing injected code.
 
 ## Memory
 
-When thinking about how memory is laid oud in our program we think of a
+When thinking about how memory is laid out in our program we think of a
 continuous array. Byte after byte it is filled with some data or instructions
-that make up our program. We can access these data, but there is a catch. We
+that make up our program. We can access this data, but there is a catch. We
 can only do so for aligned words. This means that we can only access words
-that are put into adresses that are divisible by four.
+that are put into addresses that are divisible by four.
 
 ```text
 0x00 <--- We can access this 
@@ -52,10 +53,10 @@ byte. If the address of the first byte is not divisible by four we cannot
 access such word.
 
 As mentioned in the section about segments, we already know of two places where
-data is stored. The data and code segments. But there are orther places
+data is stored. The data and code segments. But there are other places
 where we can store data.
 
-## (Call) Stack
+## The (Call) Stack
 
 The call stack should not be thought of as a data structure. More precisely it
 is just another part of memory, but it has a special purpose and should
@@ -67,14 +68,14 @@ history and store all the (not only) local variables that would not fit
 into the registers.
 
 The interesting thing is that the stack grows downwards, i.e., towards
-the zero memory address. So when we push onto the stack we substract from
+the zero memory address. So when we push onto the stack we subtract from
 the original memory address. When we pop, we add to this address.
 
-The essential part of working with stack is the `sp` register known as
+The essential part of working with the stack is the `sp` register known as
 the **stack pointer**. It should always point to the top of the stack (or the
-bottom depending how you look at as it grow to zero).
+bottom depending on how you look at it as it grows to zero).
 
-So how do we put something on the stack? First we must allocate memory for
+So how do we put something on the stack? First, we must allocate memory for
 new data. We do it by subtracting from the stack pointer.
 
 ```arm32
@@ -89,7 +90,7 @@ str r0, [sp]
 ```
 
 That is it. We just allocated new data on the stack. In order to pop from the
-stack we do the reverse. We first get the value we want to read.
+stack, we do the reverse. We first get the value we want to read.
 
 ```arm32
 ldr r0, [sp]
@@ -101,8 +102,8 @@ After which we deallocate the memory by adding to the stack pointer.
 add sp, sp, #4
 ```
 
-Thats it, but it quite cumbersome to add and subtract all by hand isn't it?
-Imagine if we would liek to push several values onto the stack.
+That's it, but it quite cumbersome to add and subtract all by hand isn't it?
+Imagine if we would like to push several values onto the stack.
 That is why we have shortcuts that do exactly the same things, these shortcuts
 are instructions `push` and `pop`.
 
@@ -130,9 +131,8 @@ way is inefficient.
 
 An interesting detail is that when we use `push` and `pop` instructions
 the order of registers does not matter. Lower registers will be pushed
-towards lower memory adresses. So both below instructions have the identical
-result.
-For me using `gcc` requires writing the registers in ascending order.
+towards lower memory addresses. So both below instructions have identical
+results. For me using `gcc` requires writing the registers in ascending order.
 
 ```arm32
 push {r0, r1, r2, r3}
@@ -181,7 +181,7 @@ keep things aligned.
 ## Heap
 
 The **heap** is another segment of memory, also called **dynamic memory**.
-We use it by requesting the operating system for allocation or dealloction. If
+We use it by requesting the operating system for allocation or deallocation. If
 we are using the **libc** function these will correspond to `malloc` and
 `free`. These perform system calls underneath.
 The `malloc` function returns a pointer to a memory that was allocated. It
@@ -207,5 +207,5 @@ bl free
 
 Now that we understand basic instructions, what are different memory segments,
 how to use stack and heap, we can dive into functions and what is *calling
-convetion*. It will be the last step to fully understand the original *hello
-world* example. This will be all explained in the part III.
+convention*. It will be the last step to fully understand the original *hello
+world* example. This will be explained in the part III.
