@@ -17,6 +17,9 @@ cryptography, who knows. When it comes to languages I feel quite comfortable
 with C++ and Python and I try to get into Rust and Haskell. Rust because I just
 find it so robust and practical, and Haskell just because it feels cool.
 
+In my free-time I enjoy boxing, reading books, playing board games with
+family and friends, and playing StarCraft 2.
+
 You can find more about me on my LinkedIn and GitHub pages.  
 [Github](https://github.com/khrynczenko)  
 [LinkedIn](https://www.linkedin.com/in/krzysztof-hrynczenko/)  
