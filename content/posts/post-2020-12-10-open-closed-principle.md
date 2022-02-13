@@ -6,8 +6,8 @@ date = 2020-12-10
 
 ## The open/closed principle
 
-The open/close principle, although very simple, can be confusing because of the
-name that makes it somewhat confusing. At one point it indicates restrictions,
+The open/close principle, although very simple, can be confusing because the
+name itself on the one hand indicates restrictions,
 on the other some freedom. There are two common definitions when it comes
 to this principle. One is called the Meyer definition and it states that:
 
@@ -38,7 +38,7 @@ so adding code is usually the only way anyway.
 ### Closed for modification
 
 What about code being closed for modification? This rule makes
-sense only when put against the first tone. In this context source code
+sense only when put against the first one. In this context source code
 should be closed for modification, **when it comes to extending the
 behavior** only. We are not talking about fixing bugs, in such scenarios, it
 is obviously okay to modify existing code. This rule basically says that
@@ -48,7 +48,7 @@ adding new code.
 ### How this works
 
 Let's look at how code that doesn't come with extension points
-(thus not open for extension) looks like.
+(is not open for extension) looks like.
 In the spirit of the first *SOLID* post, let's look at our
 deserialization algorithm, in its first original implementation.
 
