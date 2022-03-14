@@ -47,7 +47,7 @@ limited set of tools that is offered by both architectures.
 
 Let's take a look at the "Hello world!" in ARM32 assembly.
 
-```arm32
+```
 /* Hello-world program.     Print "Hello, assembly!" and exit with code 0. */
 .data
     hello:
@@ -152,7 +152,7 @@ look at the most fundamental ones.
 
 #### `add` and other arithmetic instructions
 
-```arm32
+```
 add r0, r0, r1
 ```
 
@@ -177,7 +177,7 @@ There are more instructions that work the same way.
 
 #### `mov`
 
-```arm32
+```
 mov r0, r1
 ```
 
@@ -205,7 +205,7 @@ set of values.
 
 #### `bal` / `b`
 
-```arm32
+```
 label:
 //...
 
@@ -217,7 +217,7 @@ we the next executed instruction would be the one righ after the label.
 
 #### `bx`
 
-```arm32
+```
 bx r0
 ```
 
@@ -226,7 +226,7 @@ bx r0
 
 #### `bl`
 
-```arm32
+```
 bl label
 ```
 
@@ -235,7 +235,7 @@ additionly saves `pc` value into the `lr` register. `lr` could be then
 used to go back to the instruction after the jump.  
 It is a shorthand for:
 
-```arm32
+```
 mov lr, pc
 bl label
 ```
@@ -252,7 +252,7 @@ we can use an instruction with the condition code like `moveq r0, r1` which
 performs the mov only if the previous comparison shows that `r0` and `r1` were
 equal.
 
-```arm32
+```
 cmp r0, r1 // sets CSPR
 addeq r0, r0, r1 // if(CSPR==EQ) {r0 = r0 + r1}
 ```
@@ -273,21 +273,21 @@ There are following condition codes:
 
 #### `ldr` loading from memory
 
-```arm32
+```
 ldr <dest> <source>
 ```
 
 `ldr` is used to load data from memory. We can load address of a word using
 a label.
 
-```arm32
+```
 ldr r0, =label
 ```
 
 We can also load a value from an address, but this address must be already in
 a register.
 
-```arm32
+```
 ldr r1, =label // r1 will store an address
 ldr r0, [r1] // r0 will store a value at this address
 ```
@@ -295,14 +295,14 @@ ldr r0, [r1] // r0 will store a value at this address
 More over we can load value from an adress with an offset. Offset
 can be an immediate operand or register.
 
-```arm32
+```
 ldr r1, =some_array // r1 will store an address
 ldr r0, [r1, #8] // r0 will now have value from r1 + 8 bytes
 ```
 
 #### `str` storing in memory
 
-```arm32
+```
 ldr <dest> <source>`
 ```
 
@@ -310,11 +310,11 @@ ldr <dest> <source>`
 value that we want to store in the second operand. Essentially the first
 operand becomes a source, while the second one becomes a destination.
 
-```arm32
+```
 str r1, [r0] // At address which was in r0 now will be value from r1
 ```
 
-```arm32
+```
 ldr r1, =some_array // r1 will have an address
 str r0, [r1, #8] // at the r1 + 8 bytes address will be value from r0
 ```
@@ -325,7 +325,7 @@ Now if we omit some parts of the main, I hope everyone can see what is going
 on. I have removed the `push` and `pop` instruction because we don't understand
 them yet, and I will explain them in the next post.
 
-```arm32
+```
 /* Hello-world program.     Print "Hello, assembly!" and exit with code 0. */
 .data
     hello:

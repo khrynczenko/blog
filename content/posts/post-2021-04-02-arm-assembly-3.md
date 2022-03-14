@@ -21,14 +21,14 @@ Every instruction modifies the `pc` register as a side effect. On every
 instruction, a number of bytes that were occupied by this instruction are added
 to the `pc` implicitly. Because of that our program has natural execution flow.
 
-```arm32
+```
 mov r0, #1 /* pc += 4; r0 = 1 */
 ```
 
 We can also manually cause a jump just to a given address like in the
 example below.
 
-```arm32
+```
         mov r0, #1
         mov r0, #2
         mov r0, #3
@@ -85,7 +85,7 @@ So this picture might be more realistic.
 
 In our assembly it would look as follows.
 
-```arm32
+```
 f:
     // prelude, i.e., save frame pointer and return address
     push {fp, lr}
@@ -116,7 +116,7 @@ So if the function would need to take five arguments, before the call
 we would set registers `r0`-`r3` accordingly, and push one value
 onto the stack.
 
-```arm32
+```
 mov r0, #0
 mov r1, #1
 mov r2, #2
@@ -174,7 +174,7 @@ might replace them with some garbage.
 
 To sum it up let's go back to our original *hello world* code, and go over it.
 
-```arm32
+```
 
 /* Hello-world program.     Print "Hello, assembly!" and exit with code 0. */
 .data
@@ -208,7 +208,7 @@ it. Yay, we can read the whole file now!
 Now let's define a function that takes five numbers, sums them and
 prints the result.
 
-```arm32
+```
 .data
     sum_message:
         .string "The sum is %u\n"

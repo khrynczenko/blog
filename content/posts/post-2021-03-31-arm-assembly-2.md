@@ -36,7 +36,7 @@ that make up our program. We can access this data, but there is a catch. We
 can only do so for aligned words. This means that we can only access words
 that are put into addresses that are divisible by four.
 
-```text
+```
 0x00 <--- We can access this 
 0x01
 0x02
@@ -78,27 +78,27 @@ bottom depending on how you look at it as it grows to zero).
 So how do we put something on the stack? First, we must allocate memory for
 new data. We do it by subtracting from the stack pointer.
 
-```arm32
+```
 sub sp, sp, #4
 ```
 
 We have just allocated space for four bytes (machine word) on the stack. Now
 we need to write data on the stack.
 
-```arm32
+```
 str r0, [sp]
 ```
 
 That is it. We just allocated new data on the stack. In order to pop from the
 stack, we do the reverse. We first get the value we want to read.
 
-```arm32
+```
 ldr r0, [sp]
 ```
 
 After which we deallocate the memory by adding to the stack pointer.
 
-```arm32
+```
 add sp, sp, #4
 ```
 
@@ -107,14 +107,14 @@ Imagine if we would like to push several values onto the stack.
 That is why we have shortcuts that do exactly the same things, these shortcuts
 are instructions `push` and `pop`.
 
-```arm32
+```
 push {r0, r1}
 pop {r2, r3}
 ```
 
 This is equivalent to below.
 
-```arm32
+```
 sub sp, sp, #8
 str r0, [sp]
 str r1, [sp, #4]
@@ -134,7 +134,7 @@ the order of registers does not matter. Lower registers will be pushed
 towards lower memory addresses. So both below instructions have identical
 results. For me using `gcc` requires writing the registers in ascending order.
 
-```arm32
+```
 push {r0, r1, r2, r3}
 push {r3, r2, r1, r0}
 ```
@@ -142,7 +142,7 @@ push {r3, r2, r1, r0}
 That means, whenever we `pop` we pop value that was coming from the smallest
 register pushed before.
 
-```arm32
+```
 push {r1, r2}
 pop {r3, r4}  // r3 = r1, r4 = r2
 
@@ -157,14 +157,14 @@ push only a single word onto the stack, it becomes misaligned. That is why
 in many cases when we need to push only a single word onto the stack, we
 push it together with a value from some dummy register like `ip`.
 
-```arm32
+```
 push {r1, ip}
 ```
 
 That is the reason why we pushed `lr` together with `ip` at the beginning
 of our `main` function in the original example.
 
-```arm32
+```
 .text
     .global main
     main:
@@ -188,7 +188,7 @@ The `malloc` function returns a pointer to a memory that was allocated. It
 uses the value stored in `r0` for how many bytes to allocate. After allocating
 it puts the aforementioned pointer into `r0`.
 
-```arm32
+```
 mov r0, #4
 bl malloc
 // r0 will now have the pointer to the allocated part of memory of four bytes
@@ -198,7 +198,7 @@ bl malloc
 The `free` function does not return anything, it only takes a pointer from the
 `r0` register and deallocates memory at that address.
 
-```arm32
+```
 // assuming r0 still has the pointer
 bl free
 ```
