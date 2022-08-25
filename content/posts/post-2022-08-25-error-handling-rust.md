@@ -19,7 +19,7 @@ to settle on how to deal with errors in a uniform way.
 > own and propagating errors using `dyn Error` values or they use 3rd party
 > crates like
 > `anyhow` and `thiserror` in particular. But there are other attempts like
-> `eyre` which might get more traction in the future.
+> `eyre`.
 
 ## Representing Errors
 
@@ -72,7 +72,7 @@ pub enum CopyError {
 ```
 
 > Actually I find it funny that the `std::io::copy` does not provide a way
-> to distinguish betweem which stream caused the problem. It only
+> to distinguish between which stream caused the problem. It only
 > returns `std::io::Error`, for which neither variant gives information
 > about which stream has failed.
 
@@ -145,11 +145,10 @@ impl std::error::Error for CopyError {
 
 ## Opaque Errors
 
-Opaque errors can be used when the information on what is the cause of the
-problem
+Opaque errors can be used when the information on what is the cause of the problem
 cannot meaningfully help the client recover from the problem. In that case,
 you can even return something like a `Box<dyn Error + Send + Synd + 'static>`
-just so the user can bubble the error further in order to for example log it.
+just so the user can bubble the error further to log it for example.
 
 What are the benefits of type-erased errors?
 
