@@ -1,5 +1,5 @@
 +++
-title = "Designing Interfaces in Rust (Rust for Rustaceans)"
+title = "Designing Interfaces in Rust (Rust for Rustaceans #3)"
 date = 2022-08-24
 
 +++

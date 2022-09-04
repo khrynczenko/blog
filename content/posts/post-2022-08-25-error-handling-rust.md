@@ -1,5 +1,5 @@
 +++
-title = "Error Handling in Rust (Rust for Rustaceans)"
+title = "Error Handling in Rust (Rust for Rustaceans #4)"
 date = 2022-08-25
 
 +++
