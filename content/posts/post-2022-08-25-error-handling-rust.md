@@ -270,3 +270,5 @@ involves implementing `Error` (with `source` if possible) + `Display` +
 `Debug` + `Sync` + `Send` + `'static` if possible.
 
 Don't confuse `Result<T, ()>` with `Option<T>`. They convey different meaning.
+
+[Next chapter - Project structure](../post-2022-09-11-project-structure-rust)
