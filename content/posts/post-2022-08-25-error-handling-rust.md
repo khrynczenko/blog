@@ -1,5 +1,5 @@
 +++
-title = "Error Handling in Rust (Rust for Rustaceans #4)"
+title = "Rust for Rustaceans #4: Error Handling in Rust "
 date = 2022-08-25
 
 +++
@@ -271,4 +271,6 @@ involves implementing `Error` (with `source` if possible) + `Display` +
 
 Don't confuse `Result<T, ()>` with `Option<T>`. They convey different meaning.
 
-[Next chapter - Project structure](../post-2022-09-11-project-structure-rust)
+[Next chapter - Project structure](/posts/post-2022-09-11-project-structure-rust)
+
+[Previous chapter - Designing Interfaces in Rust](/posts/post-2022-08-24-designing-interfaces-rust)

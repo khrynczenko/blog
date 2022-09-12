@@ -1,5 +1,5 @@
 +++
-title = "Chapter 1: Introducing Domain-Driven Design"
+title = "Domain Modeling Made Function #1: Introducing Domain-Driven Design"
 date = 2022-09-04
 
 +++
@@ -244,3 +244,5 @@ often acts as a trigger to a command.
 - A **Command** is a request for some process to happen and is triggered by
 an event. If the command succeeds the state of the system changes and a new
 event is emited.
+
+[Next chapter - Understanding the Domain](/posts/post-2022-09-12-domain-modeling-made-functional-2)

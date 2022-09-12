@@ -1,5 +1,5 @@
 +++
-title = "Project structure (Rust for Rustaceans #5)"
+title = "Rust for Rustaceans #5: Project structure "
 date = 2022-09-11
 
 +++
@@ -277,3 +277,5 @@ Then inside code you can use `[cfg(myoption)]`.
 
 Yeah nothing to say beside TAKE CARE OF IT. Stick to semantic versioning and
 make sure you follow it. Also be careful about *Minimum Supported Rust Version*.
+
+[Previous chapter - Error Handling in Rust](/posts/post-2022-08-25-error-handling-rust)

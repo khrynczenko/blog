@@ -1,5 +1,5 @@
 +++
-title = "Designing Interfaces in Rust (Rust for Rustaceans #3)"
+title = "Rust for Rustaceans #3: Designing Interfaces in Rust "
 date = 2022-08-24
 
 +++
@@ -233,3 +233,5 @@ Re-exporting foreing types ties you library with foreign library. If someone
 uses bot your API and that foreign API if there is a mismatch between the one
 use by you and directly by them you will have problems. The best way to avoid
 that is by wrapping such types and only then exporting them.
+
+[Next chapter - Error Handling](/posts/post-2022-08-25-error-handling-rust)
