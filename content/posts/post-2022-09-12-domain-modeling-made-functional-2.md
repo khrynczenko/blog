@@ -224,3 +224,7 @@ substep "SendAcknowledgementToCustomer" =
     create acknowledgement letter and send it
     and the priced order to the customer
 ```
+
+[Next chapter - A Functional Arcitecture](/posts/post-2022-09-13-domain-modeling-made-functional-3)
+
+[Previous chapter - Introducing Domain-Driven Design](/posts/post-2022-09-04-domain-modeling-made-functional-1)
