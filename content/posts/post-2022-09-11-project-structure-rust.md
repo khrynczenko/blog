@@ -278,4 +278,6 @@ Then inside code you can use `[cfg(myoption)]`.
 Yeah nothing to say beside TAKE CARE OF IT. Stick to semantic versioning and
 make sure you follow it. Also be careful about *Minimum Supported Rust Version*.
 
+[Next chapter - Rust Testing](/posts/post-2022-09-22-rust-testing)
+
 [Previous chapter - Error Handling in Rust](/posts/post-2022-08-25-error-handling-rust)
