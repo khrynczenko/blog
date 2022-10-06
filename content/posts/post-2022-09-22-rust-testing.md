@@ -224,3 +224,5 @@ And that is it. `[cfg(test)]` can be used in many cool ways to help us
 write better test code.
 
 [Previous chapter - Project Structure](/posts/post-2022-09-11-project-structure-rust)
+
+[Next chapter - Macros](/posts/post-2022-10-06-rust-macros)
