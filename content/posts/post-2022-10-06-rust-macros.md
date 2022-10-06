@@ -1,5 +1,5 @@
 +++
-title = "Rust for Rustaceans #6: Macros"
+title = "Rust for Rustaceans #7: Macros"
 date = 2022-10-07
 
 +++
